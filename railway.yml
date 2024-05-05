@@ -1,0 +1,15 @@
+# Nome do aplicativo
+name: meu-servidor-api
+
+# Linguagem do aplicativo (Python)
+language: python
+
+# Comandos para executar durante o deploy
+commands:
+  - pip install -r requirements.txt
+
+# Variáveis de ambiente
+env:
+  FLASK_APP: "app.py"
+  FLASK_ENV: "development"
+  RAILWAY: "true"
