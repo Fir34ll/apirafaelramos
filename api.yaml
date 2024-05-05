@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  title: Seguro de Veículos API
+  description: API para cálculo de "CREDIT_SCORE" para seguro de veículos
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5000
+    description: Servidor local
+
+paths:
+  /calculate_credit_score:
+    post:
+      summary: Calcular "CREDIT_SCORE" para seguro de veículos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                age:
+                  type: string
+                  description: Faixa de idade do cliente
+                gender:
+                  type: string
+                  description: Gênero do cliente
+                driving_experience:
+                  type: string
+                  description: Experiência de direção do cliente
+                education:
+                  type: string
+                  description: Nível de escolaridade do cliente
+                income:
+                  type: string
+                  description: Renda do cliente
+                vehicle_year:
+                  type: string
+                  description: Ano do veículo do cliente
+                vehicle_type:
+                  type: string
+                  description: Tipo de veículo do cliente
+                annual_mileage:
+                  type: number
+                  description: Quilometragem anual do veículo do cliente
+      responses:
+        '200':
+          description: "CREDIT_SCORE calculado com sucesso"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  credit_score:
+                    type: number
+                    description: CREDIT_SCORE calculado para o cliente
+        '400':
+          description: "Erro nos dados de entrada"
